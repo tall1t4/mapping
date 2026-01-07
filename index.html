@@ -83,7 +83,24 @@ footer {
 
 <section>
   <h2>📍 Destinasi Budaya</h2>
-  <div class="grid">
+  <div class="grid" id="destinasi"></div>
+
+<script>
+const container = document.getElementById("destinasi");
+
+wisataBudaya.forEach(w => {
+  container.innerHTML += `
+    <div class="card">
+      <img src="${w.gambar}">
+      <div>
+        <h3>${w.nama}</h3>
+        <p>${w.provinsi}</p>
+        <a class="btn" href="detail.html?id=${w.id}">Lihat Detail</a>
+      </div>
+    </div>
+  `;
+});
+</script>
 
     <div class="card">
       <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Borobudur-Nothwest-view.jpg">
