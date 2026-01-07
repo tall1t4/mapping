@@ -4,31 +4,63 @@
   <meta charset="UTF-8">
   <title>Smart Heritage Indonesia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; }
-    header { background: #8B0000; color: white; padding: 20px; text-align: center; }
-    section { padding: 20px; }
-    h2 { color: #8B0000; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 15px; }
-    .card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,.1);
-    }
-    .card img { width: 100%; height: 160px; object-fit: cover; }
-    .card div { padding: 15px; }
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      background: #8B0000;
-      color: white;
-      padding: 8px 12px;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    footer { text-align: center; padding: 15px; background: #222; color: white; }
-  </style>
+<style>
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  background: #f2f4f7;
+}
+header {
+  background: linear-gradient(135deg, #8B0000, #B22222);
+  color: white;
+  padding: 25px;
+  text-align: center;
+}
+section {
+  padding: 20px;
+}
+h2 {
+  color: #8B0000;
+  margin-bottom: 10px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+.card div {
+  padding: 15px;
+}
+.btn {
+  display: inline-block;
+  margin-top: 8px;
+  background: #8B0000;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+}
+footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 15px;
+  font-size: 13px;
+}
+</style>
+
 </head>
 <body>
 
@@ -90,23 +122,43 @@
 </section>
 
 <section>
-  <h2>🗓 Kalender Budaya</h2>
-  <ul>
-    <li><b>Maret</b> – Nyepi (Bali)</li>
-    <li><b>Juni</b> – Festival Danau Toba (Sumatera Utara)</li>
-    <li><b>Agustus</b> – Karapan Sapi (Madura)</li>
-    <li><b>Desember</b> – Festival Lembah Baliem (Papua)</li>
-  </ul>
+  <h2>📅 Kalender Acara Budaya</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Nyepi_Bali.jpg">
+      <div>
+        <h3>Nyepi</h3>
+        <p>Bali • Maret</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Karapan_Sapi_Madura.jpg">
+      <div>
+        <h3>Karapan Sapi</h3>
+        <p>Madura • Agustus</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section>
-  <h2>🍽 Kuliner Khas Daerah</h2>
-  <ul>
-    <li>🍛 Rendang – Sumatera Barat</li>
-    <li>🍜 Gudeg – Yogyakarta</li>
-    <li>🍗 Ayam Betutu – Bali</li>
-    <li>🥩 Papeda – Papua</li>
-  </ul>
+  <h2>🍽️ Kuliner & UMKM Budaya</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Rendang_daging_sapi.jpg">
+      <div>
+        <h3>Rendang</h3>
+        <p>Sumatera Barat</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Gudeg_Yogyakarta.jpg">
+      <div>
+        <h3>Gudeg</h3>
+        <p>Yogyakarta</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
