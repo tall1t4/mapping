@@ -3,63 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <title>Detail Budaya</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: Arial; background: #f5f5f5; margin: 0; }
-    header { background: #8B0000; color: white; padding: 15px; text-align: center; }
-    section { padding: 20px; }
-    img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; }
-    a { color: #8B0000; text-decoration: none; font-weight: bold; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #1e6f5c;
+      color: white;
+      padding: 16px;
+    }
+    .container {
+      padding: 16px;
+    }
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+    .info p {
+      margin: 6px 0;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 16px;
+      background: #1e6f5c;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
   </style>
 </head>
+
 <body>
 
 <header>
-  <h1 id="title">Detail Lokasi</h1>
+  <h2 id="nama">Nama Budaya</h2>
 </header>
 
-<section>
-  <img id="image">
-  <p id="desc"></p>
-  <p><b>Jam Buka:</b> 08.00 – 17.00</p>
-  <p><b>Harga Tiket:</b> Rp50.000</p>
-  <br>
-  <a href="index.html">← Kembali</a>
-</section>
+<div class="container">
+  <img id="gambar" src="">
+  <div class="info">
+    <p><b>Provinsi:</b> <span id="provinsi"></span></p>
+    <p><b>Kategori:</b> <span id="kategori"></span></p>
+    <p id="deskripsi"></p>
+  </div>
+
+  <a href="index.html" class="btn">← Kembali</a>
+</div>
 
 <script>
+/* DATA TEMPAT */
 const data = {
   borobudur: {
-    title: "Candi Borobudur",
-    image: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Borobudur-Nothwest-view.jpg",
-    desc: "Candi Buddha terbesar di dunia dan warisan budaya UNESCO."
+    nama: "Candi Borobudur",
+    provinsi: "Jawa Tengah",
+    kategori: "Situs Sejarah",
+    gambar: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Borobudur-Nothwest-view.jpg",
+    deskripsi: "Candi Buddha terbesar di dunia dan warisan budaya UNESCO."
   },
   prambanan: {
-    title: "Candi Prambanan",
-    image: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Prambanan_Temple_Compounds.jpg",
-    desc: "Kompleks candi Hindu terbesar di Indonesia."
-  },
-  "rumah-gadang": {
-    title: "Rumah Gadang",
-    image: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Rumah_Gadang_Padang.jpg",
-    desc: "Rumah adat Minangkabau dengan sistem matrilineal."
+    nama: "Candi Prambanan",
+    provinsi: "DI Yogyakarta",
+    kategori: "Situs Sejarah",
+    gambar: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Prambanan_Temple_Compounds.jpg",
+    deskripsi: "Kompleks candi Hindu terbesar di Indonesia."
   },
   toraja: {
-    title: "Tana Toraja",
-    image: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Tana_Toraja.jpg",
-    desc: "Wilayah adat dengan ritual pemakaman khas."
-  },
-  besakih: {
-    title: "Pura Besakih",
-    image: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Pura_Besakih.jpg",
-    desc: "Pura terbesar dan tersuci di Bali."
+    nama: "Tana Toraja",
+    provinsi: "Sulawesi Selatan",
+    kategori: "Budaya Tradisi",
+    gambar: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Tana_Toraja.jpg",
+    deskripsi: "Daerah adat dengan ritual pemakaman khas."
   }
 };
 
-const id = new URLSearchParams(window.location.search).get("id");
-document.getElementById("title").innerText = data[id].title;
-document.getElementById("image").src = data[id].image;
-document.getElementById("desc").innerText = data[id].desc;
+/* AMBIL ID DARI URL */
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+/* TAMPILKAN DATA */
+if (data[id]) {
+  document.getElementById("nama").innerText = data[id].nama;
+  document.getElementById("provinsi").innerText = data[id].provinsi;
+  document.getElementById("kategori").innerText = data[id].kategori;
+  document.getElementById("gambar").src = data[id].gambar;
+  document.getElementById("deskripsi").innerText = data[id].deskripsi;
+} else {
+  document.querySelector(".container").innerHTML = "<p>Data tidak ditemukan.</p>";
+}
 </script>
 
 </body>
