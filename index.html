@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <head>
   <meta charset="UTF-8">
   <title>Smart Heritage Indonesia</title>
@@ -68,6 +75,11 @@ footer {
   <h1>SMART HERITAGE INDONESIA</h1>
   <p>Wisata Budaya • Kalender Tradisi • Kuliner Nusantara</p>
 </header>
+
+<section>
+  <h2>🗺️ Peta Interaktif Warisan Budaya</h2>
+  <div id="map" style="height: 400px; border-radius: 12px;"></div>
+</section>
 
 <section>
   <h2>📍 Destinasi Budaya</h2>
@@ -164,6 +176,56 @@ footer {
 <footer>
   © 2026 Smart Heritage Indonesia
 </footer>
+
+<script>
+const map = L.map("map").setView([-2.5, 118], 5);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "© OpenStreetMap"
+}).addTo(map);
+
+const sites = [
+  {
+    name: "Candi Borobudur",
+    lat: -7.6079,
+    lng: 110.2038,
+    id: "borobudur"
+  },
+  {
+    name: "Candi Prambanan",
+    lat: -7.752,
+    lng: 110.4918,
+    id: "prambanan"
+  },
+  {
+    name: "Rumah Gadang",
+    lat: -0.7399,
+    lng: 100.8000,
+    id: "rumah-gadang"
+  },
+  {
+    name: "Tana Toraja",
+    lat: -3.0753,
+    lng: 119.7426,
+    id: "toraja"
+  },
+  {
+    name: "Pura Besakih",
+    lat: -8.3740,
+    lng: 115.4506,
+    id: "besakih"
+  }
+];
+
+sites.forEach(site => {
+  L.marker([site.lat, site.lng])
+    .addTo(map)
+    .bindPopup(`
+      <b>${site.name}</b><br>
+      <a href="detail.html?id=${site.id}">Lihat Detail</a>
+    `);
+});
+</script>
 
 </body>
 </html>
